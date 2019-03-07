@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/public/css/main.css">
+    <script src="/public/js/jquery.js"></script>
+    <script src="/public/js/index.js"></script>
+    <title>我的博客</title>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="list">
+        <div class="list_mid">
+         <ul>
+            {%if category%}
+                 <li><a href="/" >首页</a> </li>
+                
+                {%for cate in categories%}
+                    {%if category ==  cate._id.toString()%}
+                         <li><a href="/?category={{cate._id.toString()}}" class="focus">{{cate.name}}</a> </li>
+                    {%else%}
+                         <li><a href="/?category={{cate._id.toString()}}">{{cate.name}}</a> </li>
+                    {%endif%}
+                {%endfor%}
+            {%else%}
+                <li><a href="/" class="focus">首页</a> </li>
+                
+                {%for cate in categories%}
+
+                    <li><a href="/?category={{cate._id.toString()}}">{{cate.name}}</a> </li>
+                {%endfor%}
+            {%endif%}
+                
+        </ul>   
+        </div>
+        
+    </div>
+    <div class="middle">
+        <div class="article">
+            {%block content%}{%endblock%}
+        </div>
+        <div class="aside">
+
+
+            {% if userInfo._id %}
+            <div class="denglu" id="UserIofo">
+                    <h2>用户信息</h2>
+                    <hr>
+                    <p><span class="colDark usename">{{ userInfo.username }}</span>
+                    {% if userInfo.isAdmin %}
+                    <a class="info">你好，管理员！</a>
+                    <a  href="/admin" class="info">进入管理</a>
+                    {% else %}
+                    <a  class="info">你好，欢迎光临我的博客！</a>
+                    {% endif %}
+                    </p>
+                    <p><a href="javascript:;" id="logout">退出登录</a></p>
+            </div>
+            {% else %}
+            <div class="denglu" id="loginBox" >
+                    <h2>登陆</h2>
+                    <hr>
+                    <label for="">
+                        用户名：<input type="text" name="d_username">
+                    </label>
+                    <br>
+                    <label for="">
+                            密码：<input type="password" name="d_password">
+                        </label>
+                        <br>
+                    <button>登陆</button>
+                    <p>还没注册？<a href="javascript:;" class="cloMint">马上注册</a></p>
+                    <p class="info"></p>
+            </div>
+            <div class="denglu" id="registerBox"  style="display:none">
+                    <h2>注册</h2>
+                    <hr>
+                    <label for="">
+                        用户名：<input type="text" name="z_username">
+                    </label>
+                    <br>
+                    <label for="">
+                            密码：<input type="password" name="z_password">
+                        </label>
+                    <br>
+                    <label for="">
+                            确认：<input type="password" name="z_repassword">
+                        </label>
+                        <br>
+                    <button>登陆</button>
+                    <p class="tip"></p>
+                    <p>已有账号<a href="javascript:;"  class="cloMint">马上登陆</a></p>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

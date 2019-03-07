@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: #ccc;
+    overflow-x: hidden;
+}
+.top{
+    width: 100%;
+    height: 300px;
+    background-color: aqua;
+}
+.list{
+    width: 100%;
+    height: 50px;
+    background: rgb(16, 118, 185);
+    text-align: center;
+}
+.list_mid{
+    margin-left: 30%;
+    width: 100%;
+    height: 50px;
+    vertical-align:50px;
+}
+.list ul{
+    list-style: none;
+    vertical-align:50px;
+    
+}
+.list ul li{
+    float: left;
+    margin-left: 10px;
+    height: 50px;
+    width: 80px;
+    text-align: center;
+    line-height: 50px;
+}
+.list ul li:hover{
+    background: rgb(228, 120, 120);
+}
+.list ul li a{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+.middle{
+    margin-top: 10px;
+    text-align: center;
+}
+.article{
+    float: left;
+    margin-left: 300px;
+    width: 40%;
+    
+}
+.article .demo{
+    margin-top: 10px;
+    background: white;
+}
+.aside{
+    
+    float: left;
+    margin-left: 10px;
+    width: 300px;
+    
+}
+.denglu{
+    margin-top: 10px;
+    border:1px solid yellow;
+    background: white;
+    padding: 10px;
+}
+.footer{
+    margin-top: 10px;
+    background: white;
+    height: 70px;
+}
+.focus{
+    
+    background: rgb(233, 185, 30);
+}
+.danger{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: rgb(245, 75, 8);
+}
