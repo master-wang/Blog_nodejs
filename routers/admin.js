@@ -6,12 +6,14 @@ var Content=require('../models/Content');
 
 router.use(function(req,res,next){
     if(!req.userInfo.isAdmin){
+        console.log(req.userInfo)
         res.send('你不是管理员！');
         return;
     }
     next();
 });
 router.get('/',function(req,res){
+    console.log(req.userInfo)
     res.render('admin/index',{
         userInfo:req.userInfo
     });
